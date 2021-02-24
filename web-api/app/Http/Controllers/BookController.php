@@ -2,42 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Client;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\HarvardBookModel;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\BookModel;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use \Exception;
 
 class BookController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public static function getHarvardBooks()
     {
-        $client = new Client();
-        $request = $client->get('http://api.lib.harvard.edu/v2/collections?limit=100');
-        $response = $request->getBody()->getContents();
-
-        BookModel::addBooks($response);
+        $harvardBooks = HarvardBookModel::getHarvardBooks();
+        BookModel::addBooks(json_decode($harvardBooks));
     }
 
-    public function getBooks(Request $request, Response $response)
+    /**
+     * @return \Illuminate\Http\JsonResponse|object
+     */
+    public function getBooks()
     {
-        //Implement Orderby systemId
         try {
-            $Books = BookModel::all();
+            $Books = BookModel::orderBy('systemId')->get();
             return response()->json($Books)->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json($Books)->setStatusCode(500);
         }
     }
 
-    public function getBook(Request $request, Response $response)
+    /**
+     * @param $argument
+     * @return \Illuminate\Http\JsonResponse|object
+     */
+    public function getBook($argument)
     {
-        dd("got book");
-//        $Books = BookModel::where('systemId', '=' $param);
+        try {
+            $Books = BookModel::orderBy('systemId')
+                ->where('systemId', '=', $argument)
+                ->get();
+            return response()->json($Books)->setStatusCode(200);
+        } catch (Exception $e) {
+            return response()->json($Books)->setStatusCode(500);
+        }
     }
 }

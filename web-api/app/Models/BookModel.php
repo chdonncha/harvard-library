@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 
@@ -27,12 +26,12 @@ class BookModel extends Model
             'thumbnailUrn',
         ];
 
-    use HasFactory;
-
+    /**
+     * @param $request
+     */
     public static function addBooks($request)
     {
         $dataSet = [];
-        $request = json_decode($request);
 
         foreach($request as $book)
         {
@@ -58,6 +57,5 @@ class BookModel extends Model
         } catch (QueryException $e) {
             echo $e->getMessage();
         }
-
     }
 }

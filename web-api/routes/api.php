@@ -9,6 +9,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'library'], function() {
     Route::get('books', ['uses' => 'App\Http\Controllers\BookController@getBooks']);
-    Route::get('book/{id}', ['uses' => 'App\Http\Controllers\BookController@getBook']);
+    Route::get('book/{id}', ['uses' => 'App\Http\Controllers\BookController@getBook'])->where('id', '[0-9]+');
 });
 
