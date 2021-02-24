@@ -1,4 +1,4 @@
-# HarvardLibraryTest 
+# HarvardLibrary
 A Project which can retrieve information from wiki.harvard.edu <br />
 and store it in a local database <br />
 and display it on a front-end <br />
