@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Library extends Model
+class BookModel extends Model
 {
     protected $table = 'Books';
 
@@ -52,6 +52,6 @@ class Library extends Model
                 ];
         }
 
-        Library::insert($dataSet);
+        BookModel::insert($dataSet);
     }
 }
