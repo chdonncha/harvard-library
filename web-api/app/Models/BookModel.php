@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\QueryException;
 
 class BookModel extends Model
 {
@@ -52,6 +53,11 @@ class BookModel extends Model
                 ];
         }
 
-        BookModel::insert($dataSet);
+        try {
+            BookModel::insert($dataSet);
+        } catch (QueryException $e) {
+            echo $e->getMessage();
+        }
+
     }
 }

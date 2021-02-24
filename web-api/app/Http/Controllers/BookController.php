@@ -18,7 +18,7 @@ class BookController extends BaseController
     public static function getHarvardBooks()
     {
         $client = new Client();
-        $request = $client->get('http://api.lib.harvard.edu/v2/collections');
+        $request = $client->get('http://api.lib.harvard.edu/v2/collections?limit=100');
         $response = $request->getBody()->getContents();
 
         BookModel::addBooks($response);
@@ -27,9 +27,12 @@ class BookController extends BaseController
     public function getBooks(Request $request, Response $response)
     {
         //Implement Orderby systemId
-        $Books = BookModel::all();
-
-        return response()->json($Books);
+        try {
+            $Books = BookModel::all();
+            return response()->json($Books)->setStatusCode(200);
+        } catch (Exception $e) {
+            return response()->json($Books)->setStatusCode(500);
+        }
     }
 
     public function getBook(Request $request, Response $response)
