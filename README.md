@@ -1,6 +1,5 @@
 # HarvardLibrary
-A Project which can retrieve information from wiki.harvard.edu <br />
-and store it in a local database <br />
+A Project which can retrieve information from wiki.harvard.edu and store it in a local database <br />
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
