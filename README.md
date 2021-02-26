@@ -66,6 +66,7 @@ but php artisan test is recommend to use as it offers more verbose test reports
 
 ## Software Used
 
+* PHPstorm
 * DBeaver (as a linux alternative to Heidisql)
 * Postman
 
