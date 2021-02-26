@@ -1,6 +1,8 @@
 # HarvardLibrary
 A Project which can retrieve information from wiki.harvard.edu and store it in a local database <br />
 
+## Getting Started
+
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
 
@@ -11,6 +13,8 @@ Get All Books <br />
 
 Get a single book on SystemId number <br />
 ``` api/library/book/{id} ```
+
+## Database
 
 DB Schema:
 
@@ -32,6 +36,24 @@ DB Schema:
 | updated_at        | Datetime     |
 | created_at        | Datetime     |
 
+## Running the tests
+
+Tests can be ran using either
+
+``` ./vendor/bin/phpunit ``` 
+
+or
+
+``` php artisan test ```
+
+but php artisan test is recommend to use as it offers more verbose test reports
+
+## Built With
+
+* Laravel 4.0.0
+* PHP 7.3.27
+* MySQL 5.7.33
+
 ## What I would have done had I more time
 
 * Expand upon the API as there is only two endpoints, and command function.
@@ -41,6 +63,8 @@ DB Schema:
 * Improved testing: much of the testing isn't air tight, and had I more time I would have liken to use Mockery to create datasets for each required scenario such as the testInsertBookDataSuccess
 * A front-end where the data could be actually viewed. Due to time contraints too mainly lost due to issues with docker this feature had to be dropped, but I would have created an AngularJS front-end and made reuqests on the front-end which would be displayed in a gridformat with toggleable sorting on each column.
 * There was no primary key in the DB, and two fields that aren't populated. Unfortunately this would have been a quick issue to resolve as one "created" field was redundant as there was alreayd another that was working, and the "modified" one would never be populated. The systemId should have been the primary key though is NOT NULL.
-
+* Using a Linter or code quality analyser to ensure consistent and quality code e.g. PHPinsights, Larastan
+* Updated Laravel to a higher version, used composer create ``` laravel/laravel ``` to install Laravel but only noticed until later that it was a lower version than I expected.
+ 
 ## Other Issues
 * The harvard api seems to only able to retrieve 30 books max, even when a limit is set to 100 or even 1000 it’ll only retrieve 30 books.
