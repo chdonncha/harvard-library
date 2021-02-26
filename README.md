@@ -1,5 +1,5 @@
 # HarvardLibrary
-A Project which can retrieve information from wiki.harvard.edu and store it in a local database <br />
+A Project which can retrieve information from wiki.harvard.edu and store it in a local database. The books can then be retrieved via JSON from requests made to the local server. <br />
 
 ## Getting Started
 
@@ -12,9 +12,11 @@ Get All Books <br />
 ``` api/library/books ```
 
 Get a single book on SystemId number <br />
-``` api/library/book/{id} ```
+``` api/library/book/{id(int)} ```
 
 ## Database
+MySQL was used for storing the books in a local database. <br />
+Included also are migrations of the current schema used. <br />
 
 DB Schema:
 
@@ -37,6 +39,7 @@ DB Schema:
 | created_at        | Datetime     |
 
 ## Running the tests
+In all there's 6 unit tests. These test that each endpoint is returning a 200 status code where a successful call is made, a 404 status code when the wrong value type is passed and tests to ensure JSON data is returned from the request.
 
 Tests can be ran using either
 
@@ -53,6 +56,14 @@ but php artisan test is recommend to use as it offers more verbose test reports
 * Laravel 4.0.0
 * PHP 7.3.27
 * MySQL 5.7.33
+
+## Other seperately downloaded packages
+* Guzzle (for a cleaner way of making the HTTP GET request to Harvard)
+
+## Software Used
+
+* DBeaver (as a linux alternative to Heidisql)
+* Postman
 
 ## What I would have done had I more time
 
