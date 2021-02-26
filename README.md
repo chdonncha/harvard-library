@@ -6,7 +6,7 @@ Once the localdatabase and setup and configured through the .env file data can b
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
-<br />
+<br /><br />
 
 After which the server can be hosted using ``` php artisan serve ``` to access the local endpoints.
 
