@@ -2,9 +2,13 @@
 A Project which can retrieve information from wiki.harvard.edu and store it in a local database. The books can then be retrieved via JSON from requests made to the local server. <br />
 
 ## Getting Started
+Once the localdatabase and setup and configured through the .env file data can be pulled using the local command.
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
+<br />
+
+After which the server can be hosted using ``` php artisan serve ``` to access the local endpoints.
 
 Books can be accessed then though two get requests on: <br />
 
