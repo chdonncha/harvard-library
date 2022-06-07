@@ -70,17 +70,17 @@ but php artisan test is recommend to use as it offers more verbose test reports
 * DBeaver (as a linux alternative to Heidisql)
 * Postman
 
-## What I would have done had I more time
+## Todo
 
 * Expand upon the API as there is only two endpoints, and command function.
-* Finish setting up Docker, as ran into many issues on my local system. If I had more time I would have created a VM using vagrant and hosted docker on that instead to reudce issues I was having with my local system.
 * Implement a Hierarchical model–view–controller, if threating it like an expandable project it'd make each component encapsulated in a single module, only this module is affected in case of a change. This reduces maintenance effort and ripple effects. Testing would also be reduced in part as a variation could be introduced without chanigng the exisiting or tested code.
-* Improved validation: due to time contraints I had to take some shortcuts on validation. e.g. for 1 I would have liken to include an error on the PullBookData command, but ran out of time.
-* Improved testing: much of the testing isn't air tight, and had I more time I would have liken to use Mockery to create datasets for each required scenario such as the testInsertBookDataSuccess
-* A front-end where the data could be actually viewed. Due to time contraints too mainly lost due to issues with docker this feature had to be dropped, but I would have created an AngularJS front-end and made reuqests on the front-end which would be displayed in a gridformat with toggleable sorting on each column.
-* There was no primary key in the DB, and two fields that aren't populated. Unfortunately this would have been a quick issue to resolve as one "created" field was redundant as there was alreayd another that was working, and the "modified" one would never be populated. The systemId should have been the primary key though is NOT NULL.
+* Improved validation
+* Improved testing: much of the testing currently isn't air tight, use Mockery to create datasets for each required scenario such as the testInsertBookDataSuccess etc.
+* A front-end where the data could be actually viewed, possibly using Angular or AngularJS front-end and make reuqests on the front-end which would be displayed in a gridformat with toggleable sorting on each column.
+* There was no primary key in the DB, and two fields that aren't populated. Unfortunately this would have been a quick issue to resolve as one "created" field was redundant as there was already another that was working, and the "modified" one would never be populated. The systemId should have been the primary key though is NOT NULL.
 * Using a Linter or code quality analyser to ensure consistent and quality code e.g. PHPinsights, Larastan
-* Updated Laravel to a higher version, used composer create ``` laravel/laravel ``` to install Laravel but only noticed until later that it was a lower version than I expected.
+* Updated Laravel to a higher version
  
-## Other Issues
+## Issues
 * The harvard api seems to only able to retrieve 30 books max, even when a limit is set to 100 or even 1000 it’ll only retrieve 30 books.
+* Possibily should have used a different public API or built out my own via express and populated with randomised data (may end up taking the issues of this and applying it into another API project to attmept to rectify these issues)
