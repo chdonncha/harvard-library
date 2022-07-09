@@ -7,7 +7,8 @@ install prerequisites
 `composer install`
 `npm install`
 
-Once the localdatabase and setup and configured through the .env file data can be pulled using the local command.
+* Once the localdatabase and setup and configured:
+ * create a file called .env and base it off .env.example and fill in the required database details
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
