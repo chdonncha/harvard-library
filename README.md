@@ -7,8 +7,9 @@ install prerequisites
 `composer install`
 `npm install`
 
-* Once the localdatabase and setup and configured:
- * create a file called .env and base it off .env.example and fill in the required database details
+Once the localdatabase and setup and configured:
+create a file called .env and base it off .env.example and fill in the required database details
+then generate application key for secure connection by using `php artisan key:generate` which will be populated into the .env file
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
