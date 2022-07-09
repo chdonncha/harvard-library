@@ -2,6 +2,11 @@
 A Project which can retrieve information from wiki.harvard.edu and store it in a local database. The books can then be retrieved via JSON from requests made to the local server. <br />
 
 ## Getting Started
+
+install prerequisites
+`composer install`
+`npm install`
+
 Once the localdatabase and setup and configured through the .env file data can be pulled using the local command.
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
