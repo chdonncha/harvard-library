@@ -26,6 +26,11 @@ Get All Books <br />
 Get a single book on SystemId number <br />
 ``` api/library/book/{id(int)} ```
 
+## Troubleshooting
+
+If getting driver error when running migrations or trying to make a request to an endpoint the following command may resolve this:
+`sudo apt-get install php-mysql`
+
 ## Database
 MySQL was used for storing the books in a local database. <br />
 Included also are migrations of the current schema used. <br />
