@@ -9,7 +9,8 @@ install prerequisites
 
 Once the localdatabase and setup and configured:
 create a file called .env and base it off .env.example and fill in the required database details
-then generate application key for secure connection by using `php artisan key:generate` which will be populated into the .env file
+generate application key for secure connection by using `php artisan key:generate` which will be populated into the .env file
+with database correctly configured then run migrations to create tables - `database/migrations`
 
 Book data can be pulled from Harvard and inserted into the local DB by using the custom command: <br />
 ``` php artisan library:pull ```
